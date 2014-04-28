@@ -1,0 +1,53 @@
+{% extends "proj/base.html" %}
+{% load staticfiles %}
+
+{% block project_list %}
+{% for project in project_list %}
+<div class="email-item pure-g">
+  <div class="pure-u">
+    <img class="email-avatar" alt="Tilo Mitra&#x27;s avatar" height="64" width="64" src="{% static 'img/common/tilo-avatar.png' %}">
+  </div>
+  <div class="pure-u-3-4">
+    <h4 class="email-subject">{{ project.name }}</h4>
+    <p class="email-desc">
+        {{ project.description }}
+    </p>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block xssitem_list %}
+<table class="pure-table" style="width:100%">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>IP</th>
+      <th>Header</th>
+      <th>Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in item_list %}
+    <tr{% if forloop.counter %} class="pure-table-odd"{% endif %}>
+      <td>{{ item.recv_date }}</td>
+      <td>
+        <dl>
+          {% for k,v in item.itemdetail.iteritems %}
+          <dt>
+            {{ k }}
+          </dt>
+          <dd>
+            {{ v }}
+          </dd>
+          {% endfor %}
+        </dl>
+      </td>
+      <td>Accord</td>
+      <td>2009</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Design for a XSS exploit platform.">
+  <title>xsstry for yunday</title>
+  <link rel="stylesheet" href="{% static 'css/pure.css' %}">
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="{% static 'css/layouts/email-old-ie.css' %}">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="{% static 'css/layouts/email.css' %}">
+  <!--<![endif]-->
+</head>
+<body>
+<div class="pure-g-r">
+  <div class="pure-u-1">
+    <form class="pure-form pure-form-aligned" method="post" action="">
+      <fieldset>
+        <legend> </legend>
+        <div class="pure-control-group">
+          <label for="name">Username</label>
+          <input id="name" name="user" type="text" placeholder="Username">
+        </div>
+        {% csrf_token %}
+        <div class="pure-control-group">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Password">
+        </div>
+
+        <div class="pure-controls">
+          <button type="submit" class="pure-button pure-button-primary">Sign In</button>
+          <a class="pure-button pure-button-primary" href="{% url 'main:register' %}">Register</a>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

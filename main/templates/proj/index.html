@@ -1,0 +1,20 @@
+{% extends "proj/base.html" %}
+
+{% load staticfiles %}
+
+{% block project_list %}
+{% for project in project_list %}
+<div class="email-item pure-g">
+  <div class="pure-u">
+    <img class="email-avatar" alt="Tilo Mitra&#x27;s avatar" height="64" width="64" src="{% static 'img/common/tilo-avatar.png' %}">
+  </div>
+  <div class="pure-u-3-4">
+    <h4 class="email-subject">{{ project.name }}</h4>
+    <p class="email-desc">
+        {{ project.description }} ......
+    </p>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
