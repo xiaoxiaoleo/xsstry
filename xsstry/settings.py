@@ -67,9 +67,9 @@ WSGI_APPLICATION = 'xsstry.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'xsstry',
+        'NAME': 'app_xsstry',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '8258508',
         'HOST': '127.0.0.1',
     }
 }
